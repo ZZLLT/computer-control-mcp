@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "computer-control-mcp"
+version = "0.1.0"
+description = "A full-featured MCP server for computer control: mouse, keyboard, screenshots, OCR, window management. Works on Windows, macOS, and Linux."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "ZZLLT" },
+]
+keywords = ["mcp", "computer-control", "automation", "pyautogui", "screenshot", "ocr"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Utilities",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+]
+
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "pyautogui>=0.9.54",
+    "mss>=7.0.0",
+    "pillow>=10.0.0",
+    "pywinctl>=0.4.0",
+    "fuzzywuzzy>=0.18.0",
+    "python-Levenshtein>=0.20.0",
+    "rapidocr>=3.0.0",
+    "opencv-python>=4.8.0",
+    "numpy>=1.24.0",
+    "pyperclip>=1.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21",
+]
+
+[project.urls]
+Homepage = "https://github.com/ZZLLT/computer-control-mcp"
+Issues = "https://github.com/ZZLLT/computer-control-mcp/issues"
+Documentation = "https://github.com/ZZLLT/computer-control-mcp#readme"
+
+[project.scripts]
+computer-control-mcp = "computer_control_mcp.server:main"
+
+[tool.hatch.build]
+sources = ["src"]
+packages = ["src/computer_control_mcp"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/computer_control_mcp"]
