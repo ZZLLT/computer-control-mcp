@@ -1,0 +1,11 @@
+# Smithery configuration
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |
+    () => ({
+      command: "uvx",
+      args: ["computer-control-mcp@latest"]
+    })
